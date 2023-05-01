@@ -10,7 +10,13 @@ import threading
 if __name__ == '__main__':
 	server_thread = threading.Thread(target = server.start_server)
 	server_thread.start()
-	# ser = serial.Serial('/dev/ttyACM0', 9600)
+	device = serial.Serial(
+		port='/dev/ttyACM0',
+		baudrate=9600,
+		parity=serial.PARITY_NONE,
+		stopbits=serial.STOPBITS_ONE,
+		bytesize=serial.EIGHTBITS,
+		timeout=0.1)
 
 	while not server.get_ready():
 		print("not ready")
@@ -25,14 +31,14 @@ if __name__ == '__main__':
 		command = -1
 		if (forward == "forward pressed"):
 			command = 0
-		if (backward == "backward pressed"):
+		elif (backward == "backward pressed"):
 			command = 1
-		if (left == "left pressed"):
+		elif (left == "left pressed"):
 			command = 2
-		if (right == "right pressed"):
+		elif (right == "right pressed"):
 			command = 3
 		
 		if (command != -1):
 			print(command)
-			#ser.write(txt.encode())
+			device.write(comand.encode())
 		time.sleep(0.1)
