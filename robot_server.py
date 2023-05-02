@@ -36,7 +36,7 @@ def start_server():
         left_pressed = "false",
         right_pressed = "false",
     )
-    app.run(host='172.20.10.4', port=8000, debug=False, threaded=True)
+    app.run(host='0.0.0.0', port=8000, debug=False, threaded=True)
 
 def get_ready():
     with app.app_context():
