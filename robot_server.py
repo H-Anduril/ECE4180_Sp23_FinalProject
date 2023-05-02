@@ -7,6 +7,8 @@ import threading
 import os
 from flask_socketio import SocketIO, emit
 import numpy as np
+import cv2
+from webcamvideostream import WebcamVideoStream
 
 app = Flask("app")
 
@@ -21,6 +23,7 @@ def receive_message():
     app.config[flag] = state
     return state
 
+
 def refresh_page():
     with app.app_context():
         return render_template('index.html')
@@ -31,9 +34,9 @@ def start_server():
         forward_pressed = "false",
         backward_pressed = "false",
         left_pressed = "false",
-        right_pressed = "false"
+        right_pressed = "false",
     )
-    app.run(host='127.0.0.1', port=5000, debug=False, threaded=True)
+    app.run(host='172.20.10.4', port=8000, debug=False, threaded=True)
 
 def get_ready():
     with app.app_context():
