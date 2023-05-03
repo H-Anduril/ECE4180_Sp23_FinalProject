@@ -1,0 +1,12 @@
+^BUILD$
+^.mbed$
+^compile_commands.json$
+^.clangd$
+^.cache$
+^SDFileSystem$
+^mbed-rtos$
+^wave_player$
+^mbed$
+^HC_SR04_Ultrasonic_Library$
+^X_NUCLEO_53L0A1$
+^Motor$
