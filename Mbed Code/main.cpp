@@ -2,8 +2,6 @@
 #include <stdio.h>
 #include "mbed.h"
 #include "rtos.h"
-#include "SDFileSystem.h"
-#include "wave_player.h"
 #include "ultrasonic.h"
 #include "XNucleo53L0A1.h"
 #include "Motor.h"
