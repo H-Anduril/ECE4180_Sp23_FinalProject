@@ -3,19 +3,19 @@
 import os, sys
 import time
 import robot_server 
-#import serial
+import serial
 import threading
 
 if __name__ == '__main__':
     server_thread = threading.Thread(target = robot_server.start_server)
     server_thread.start()
-    # device = serial.Serial(
-    #     port='/dev/ttyACM0',
-    #     baudrate=9600,
-    #     parity=serial.PARITY_NONE,
-    #     stopbits=serial.STOPBITS_ONE,
-    #     bytesize=serial.EIGHTBITS,
-    #     timeout=0.1)
+    device = serial.Serial(
+        port='/dev/ttyACM0',
+        baudrate=9600,
+        parity=serial.PARITY_NONE,
+        stopbits=serial.STOPBITS_ONE,
+        bytesize=serial.EIGHTBITS,
+        timeout=0.1)
 
     while not robot_server.get_ready():
         print("not ready")
@@ -38,5 +38,5 @@ if __name__ == '__main__':
             command = 3
         if (command != 4):
             print(command)
-        #device.write(str(command).encode())
+        device.write(str(command).encode())
         time.sleep(0.1)
