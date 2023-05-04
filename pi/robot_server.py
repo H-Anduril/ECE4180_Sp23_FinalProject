@@ -1,6 +1,4 @@
 from flask import current_app, Flask, render_template, request
-# Raspberry Pi camera module (requires picamera package, developed by Miguel Grinberg
-import time
 import sys
 import threading
 import os
